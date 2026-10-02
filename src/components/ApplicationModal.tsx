@@ -1,0 +1,9 @@
+import { CheckCircle2, X } from 'lucide-react'
+import { useState } from 'react'
+import type { FormEvent } from 'react'
+
+export default function ApplicationModal({ onClose }: { onClose: () => void }) {
+  const [submitted, setSubmitted] = useState(false)
+  const submit = (event: FormEvent<HTMLFormElement>) => { event.preventDefault(); setSubmitted(true); window.setTimeout(onClose, 3000) }
+  return <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" role="dialog" aria-modal="true"><div className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative"><button onClick={onClose} className="absolute top-4 right-4 p-2 text-gray-500"><X className="w-5 h-5" /></button><h2 className="text-2xl font-serif font-bold text-[#1E4D3A] mb-2">Student Application Form</h2><p className="text-xs text-[#55635B] mb-6">Start your admission inquiry for the 2026/2027 academic year.</p>{submitted ? <div className="bg-emerald-50 text-emerald-800 p-4 rounded-xl text-center"><CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" /><h3 className="font-bold mt-2">Application Submitted!</h3><p className="text-xs">Our admissions team will contact you within 24 hours.</p></div> : <form onSubmit={submit} className="space-y-4"><input required placeholder="Student full name" className="w-full px-4 py-2.5 border rounded-lg text-sm" /><div className="grid grid-cols-2 gap-4"><select className="px-4 py-2.5 border rounded-lg text-sm"><option>Nursery & Primary</option><option>Ordinary Level</option></select><input required type="tel" placeholder="Parent phone" className="px-4 py-2.5 border rounded-lg text-sm" /></div><input required type="email" placeholder="Parent email" className="w-full px-4 py-2.5 border rounded-lg text-sm" /><button className="w-full bg-[#1E4D3A] hover:bg-[#143326] text-white py-3 rounded-lg font-semibold">Submit Application Request</button></form>}</div></div>
+}
