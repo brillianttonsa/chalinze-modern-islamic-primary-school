@@ -1,75 +1,60 @@
-# React + TypeScript + Vite
+# Chalinze Modern Islamic School Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive website for Chalinze Modern Islamic School, built with React, TypeScript, Vite, and Tailwind CSS. It includes school information, academics, admissions, student life, news and results, a gallery, contact information, and Islamic life content.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Install [Node.js](https://nodejs.org/) and npm, then install the project dependencies:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Start the local development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+Vite prints the local URL in the terminal when the server starts.
+
+## Available Commands
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server. |
+| `npm run build` | Run TypeScript project checks and create a production build in `dist/`. |
+| `npm run preview` | Serve the production build locally. Run `npm run build` first. |
+| `npm run lint` | Run ESLint across the project. |
+
+## Pages
+
+| Page | Path |
+| --- | --- |
+| Home | `/` |
+| About Us | `/about` |
+| Academics | `/academics` |
+| Student Life | `/student-life` |
+| Admissions | `/admissions` |
+| News & Results | `/results` |
+| Gallery | `/gallery` |
+| Contact | `/contact` |
+| Islamic Life | `/islamic-life` |
+| Careers | `/careers` |
+
+## Project Structure
+
+- `src/pages/` contains the page-level components.
+- `src/components/` contains shared layout and page sections, organized by site area.
+- `src/components/common/routes.ts` maps navigation labels to their URL paths.
+- `src/assets/` contains imported site images and other assets.
+- `public/` contains static files served directly by Vite.
+- `src/index.css` contains global styles and Tailwind CSS setup.
+
+## Technology
+
+- React and TypeScript
+- Vite
+- Tailwind CSS 4
+- React Router
+- Lucide React icons
